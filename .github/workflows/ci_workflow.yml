@@ -17,11 +17,15 @@ jobs:
       with:
         node-version: 18.15.0
         cache: 'npm'
+
+    - name: Enter into coffee_app folder
       run: cd coffee_app
+
     - name: Install dependencies
       run: npm ci
     - name: Run unit tests
       run: npm run test:unit
     - name: Install Playwright
       run: npx playwright install
+    - name: Run integration tests 
       run: npm run test
