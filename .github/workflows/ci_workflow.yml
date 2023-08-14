@@ -21,10 +21,6 @@ jobs:
         node-version: 18.15.0
         cache: 'npm'
         cache-dependency-path: './coffee_app/package-lock.json'
-
-    - name: Enter into coffee_app folder
-      run: cd coffee_app
-
     - name: Install dependencies
       run: npm install 
     - name: Run unit tests
