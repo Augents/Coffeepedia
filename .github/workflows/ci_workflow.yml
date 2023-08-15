@@ -7,29 +7,6 @@ on:
 permissions: write-all
 
 jobs:
-  testing:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./coffee_app/
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v3
-    - name: Setup Node
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18.15.0
-        cache: 'npm'
-        cache-dependency-path: './coffee_app/package-lock.json'
-    - name: Install dependencies
-      run: npm install 
-    - name: Run unit tests
-      run: npm run test:unit
-    - name: Install Playwright
-      run: npx playwright install
-    - name: Run integration tests 
-      run: npm run test
- 
   formatting:
     needs: testing
     runs-on: ubuntu-latest
@@ -57,6 +34,29 @@ jobs:
         commit_message: Applied formatting changes
         branch: ${{github.head_ref}}
 
+  testing:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./coffee_app/
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+    - name: Setup Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18.15.0
+        cache: 'npm'
+        cache-dependency-path: './coffee_app/package-lock.json'
+    - name: Install dependencies
+      run: npm install 
+    - name: Run unit tests
+      run: npm run test:unit
+    - name: Install Playwright
+      run: npx playwright install
+    - name: Run integration tests 
+      run: npm run test
+ 
   linting:
     needs: formatting
     runs-on: ubuntu-latest
