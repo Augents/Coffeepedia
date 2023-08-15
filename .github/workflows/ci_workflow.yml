@@ -8,7 +8,6 @@ permissions: write-all
 
 jobs:
   formatting:
-    needs: testing
     runs-on: ubuntu-latest
     defaults:
       run:
