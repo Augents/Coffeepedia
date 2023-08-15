@@ -1,5 +1,3 @@
 import { expect, test } from '@playwright/test';
 
-test('placeholder', async ({ page }) => {
-
-});
+test('placeholder', async ({ page }) => {});
