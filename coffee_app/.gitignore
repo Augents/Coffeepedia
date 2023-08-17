@@ -8,4 +8,3 @@ node_modules
 !.env.example
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
-coffee_app\src\routes\api\database-config.ts
